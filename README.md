@@ -1,5 +1,6 @@
 # TimDrumKit
 Drum Kit - A good project of learning Event Listener in JavaScript
+#HTML #CSS #JavaScript
 https://mannhuynh.github.io/TimDrumKit/
 
 To play sound:
