@@ -15,6 +15,8 @@ function mouseClick() {
     var buttonInnerHTML = this.innerHTML;
     //call makeSound function and use buttonInnerHTML as argument. 
     makeSound(buttonInnerHTML);
+    //call buttonAnimation function to add animation while clicking mouse
+    buttonAnimation(buttonInnerHTML);
 }
 
 //add event listener to all document. use "keydown" keyword to detect a keydown from keyboard and run keyStroke function
@@ -24,6 +26,8 @@ document.addEventListener("keydown", keyStrock);
 function keyStrock(event) {
     //passing event.key argument to makeSound function, this argument is used to detect keystroke event and pass key parameter from makeSound 
     makeSound(event.key);
+    //call buttonAnimation function to add animation while pressing keys
+    buttonAnimation(event.key);
 }
 
 //this function will pair each sound to a specific key/ button using switch statement
@@ -70,3 +74,24 @@ function makeSound(key) {
     }
 
 }
+
+//This function is to add animation to the key/ button while they are pressed/ clicked
+function buttonAnimation(currentKey){
+    //get the active button by selecting by key trigged and concatenating with "."
+    var activeButton = document.querySelector("." + currentKey);
+    //add press class to apply the .press class from CSS file
+    activeButton.classList.add("pressed");
+    //built-in function to set time out of an event
+    setTimeout( function() { //anonymous function
+        activeButton.classList.remove("pressed");
+    }, 100); // set time out .1 sec
+}
+
+
+
+// Pressed class animation from CSS file:
+// .pressed {
+//     box-shadow: 0 3px 4px 0 #DBEDF3;
+//     opacity: 0.5;
+//   }
+  
